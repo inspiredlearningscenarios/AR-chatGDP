@@ -1,15 +1,18 @@
-<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-
-<!-- rawgithack development URL -->
-<script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
-
-<body style='margin : 0px; overflow: hidden;'>
-   <!-- minimal loader shown until image descriptors are loaded -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My AR Scene</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
+</head>
+<body style='margin: 0px; overflow: hidden;'>
+  <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
-    <a-scene
-
-                 
-    </a-scene>
+  <a-scene>
+    <a-marker-camera preset='hiro'></a-marker-camera>
+    <a-entity gltf-model="Tesla_Symbol.glb" scale="0.1 0.1 0.1"></a-entity>
+  </a-scene>
 </body>
+</html>
