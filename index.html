@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>My AR Experience</title>
+  </head>
+  <body>
+    <h1>My AR Experience</h1>
+    <div id="ar"></div>
+    <a-asset-item id="my-asset" src="path/to/Tesla_Symbol.glb"></a-asset-item>
+    <a-scene>
+      <a-entity gltf-model="#my-asset"></a-entity>
+    </a-scene>
+    <script>
+      const arDiv = document.getElementById('ar');
+      const scene = document.querySelector('a-scene');
+
+      arDiv.appendChild(scene);
+    </script>
+  </body>
+</html>
