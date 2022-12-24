@@ -4,8 +4,10 @@
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   </head>
   <body>
-    <a-scene ar="trackingMethod: best; source: camera">
-      <a-entity gltf-model="https://github.com/AR-chatGDP/Tesla_Symbol.glb"></a-entity>
+    <a-scene ar>
+      <a-camera ar="trackingMethod: best; source: camera">
+        <a-entity gltf-model="https://github.com/AR-chatGDP/Tesla_Symbol.glb"></a-entity>
+      </a-camera>
     </a-scene>
   </body>
 </html>
