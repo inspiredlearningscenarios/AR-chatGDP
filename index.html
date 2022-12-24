@@ -1,13 +1,48 @@
-<html>
-  <head>
-    <title>AR Experience</title>
-    <script src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
-  </head>
-  <body>
-    <div id="container" arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false'>
-      <a-scene arjs>
-        <a-entity gltf-model="https://github.com/AR-chatGDP/Tesla_Symbol.glb"></a-entity>
-      </a-scene>
-    </div>
-  </body>
-</html>
+<!-- HTML code -->
+<!-- Add a video element to display the camera stream -->
+<video id="camera"></video>
+
+<!-- Add a canvas element to render the AR content -->
+<canvas id="ar-canvas"></canvas>
+
+<!-- Add a script tag to include the AR.js library -->
+<script src="https://cdn.jsdelivr.net/npm/ar.js@3.0.0/aframe/build/aframe-ar.js"></script>
+
+<!-- Add a script tag to include the JavaScript code -->
+<script>
+  // JavaScript code
+  // Get a reference to the video and canvas elements
+  const video = document.getElementById('camera');
+  const canvas = document.getElementById('ar-canvas');
+
+  // Initialize AR.js
+  const ar = new AR.JS.Client({
+    canvas: canvas,
+    video: video,
+  });
+
+  // Load the Tesla symbol model
+  const model = new AR.JS.Model({
+    url: 'https://raw.githubusercontent.com/AR-chatGDP/Tesla_Symbol.glb',
+  });
+
+  // Add an event listener to the video element to detect features in the environment
+  video.addEventListener('click', function(event) {
+    // Get the screen coordinates of the click event
+    const x = event.offsetX;
+    const y = event.offsetY;
+
+    // Use AR.JS.HitTest to detect features at the clicked location
+    ar.hitTest(x, y).then(function(hitTestResult) {
+      // If a feature was detected, position the model at the feature's location
+      if (hitTestResult.length > 0) {
+        model.position.x = hitTestResult[0].x;
+        model.position.y = hitTestResult[0].y;
+        model.position.z = hitTestResult[0].z;
+      }
+    });
+  });
+
+  // Start AR.js
+  ar.start();
+</script>
