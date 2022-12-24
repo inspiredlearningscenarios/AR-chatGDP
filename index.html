@@ -5,7 +5,9 @@
   </head>
   <body>
     <div id="container" arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false'>
-      <model-viewer src="https://github.com/AR-chatGDP/Tesla_Symbol.glb" ar></model-viewer>
+      <a-marker preset="custom" type="pattern" url="pattern-marker.patt">
+        <a-entity gltf-model="https://github.com/AR-chatGDP/Tesla_Symbol.glb"></a-entity>
+      </a-marker>
     </div>
   </body>
 </html>
